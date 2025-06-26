@@ -1,52 +1,47 @@
 import { Button } from '@/components/ui/button'
 import { Work } from '@/components/work'
-import {
-  IconHome,
-  IconUsers,
-  IconUser,
-  IconArrowRight,
-  IconArrowLeft,
-  IconArrowUp,
-  IconArrowDown,
-  IconArrowUpRight,
-  IconArrowDownRight,
-  IconArrowUpLeft,
-  IconArrowDownLeft,
-  IconChevronRight,
-  IconChevronLeft,
-  IconChevronUp,
-  IconChevronDown,
-  IconChevronUpRight,
-  IconChevronDownRight,
-  IconChevronUpLeft,
-  IconChevronDownLeft,
-  IconAlphabetArabic,
-  IconAlphabetLatin,
-} from '@tabler/icons-react'
 
-# Universitetsmuseet i Bergen 200 år
+# Exhibition Template
 
-Velkommen til nettutstillingen for Universitetsmuseet i Bergen 200 år jubileum!
+Welcome to the exhibition template! This is a template for creating digital exhibitions with IIIF support.
 
-## Om utstillingen
+## About the template
 
-Denne nettutstillingen feirer 200 år med forskning, bevaring og formidling av kulturarv ved Universitetsmuseet i Bergen. Gjennom digitale IIIF-manifester kan du utforske våre samlinger og lære mer om museets historie og betydning.
+This template gives you everything you need to create a professional online exhibition. It's built with Next.js and supports IIIF manifests, making it easy to display digital objects from museums and archives.
 
 <Button size="lg" className="my-4">
-  <a href="/dokumentasjon">
-    Lær mer om hvordan du lager en nettutstilling
+  <a href="/documentation">
+    Learn more about how to use the template
   </a>
 </Button>
 
-## Eksempel på digitalt objekt
+## Example digital object
 
 <Work manifest="ubb-diplom-0034">
   <Work.Description>
-    Dette diplomet er datert 7. august 1348 og handler om et drap i Bergen samme vår. 
-    Sysselmann Ivar Andresson gir beskjed til kong Magnus VII Eriksson om at Arne Alfinnson 
-    drepte Einar Auga, og gir en detaljert beskrivelse av hendelsen.
+    This is an example of how you can display a digital object in your exhibition. 
+    Replace this text with your own description of the object you want to show.
   </Work.Description>
   <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
-    Se mer i Marcus
+    See more in Marcus
   </Work.Link>
 </Work>
+
+<Work manifest="https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mc/53/t1mc534fp164/manifest">
+  <Work.Description>
+    This is an example of how you can display a digital object in your exhibition from Durham University. 
+    Replace this text with your own description of the object you want to show.
+  </Work.Description>
+</Work>
+
+## Getting started
+
+To get started with your own exhibition:
+
+1. **Use this template** by clicking the "Use this template" button on GitHub
+2. **Create a new repository** from the template - you now have your own copy in your GitHub space
+3. **Update the content** in the `content/` folder
+4. **Customize the design** by modifying components in `src/components/`
+5. **Add your own IIIF manifests** to display digital objects
+
+See the documentation for more detailed instructions.

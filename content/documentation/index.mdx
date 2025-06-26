@@ -1,48 +1,46 @@
 ---
-title: Dokumentasjon
+title: Documentation
 ---
 
 import { Work } from '@/components/work'
 import { Button } from '@/components/ui/button'
 import { IconUsers, IconHome, IconUser, IconArrowRight, IconArrowLeft, IconArrowUp, IconArrowDown, IconArrowUpRight, IconArrowDownRight, IconArrowUpLeft, IconArrowDownLeft, IconChevronRight, IconChevronLeft, IconChevronUp, IconChevronDown, IconChevronUpRight, IconChevronDownRight, IconChevronUpLeft, IconChevronDownLeft, IconAlphabetArabic, IconAlphabetLatin } from '@tabler/icons-react'
 
-# Dokumentasjon
+# Documentation
 
 ## Work
 
-`<Work />` er en IIIF-viser som kan brukes til å vise digitale IIIF-manifester. Den er bygd med [Clover-IIIF](https://github.com/samvera-labs/clover-iiif). Siste versjon av Nextjs og React fungerer ikke med Clover-IIIF, så vi må bruke v2.12.0.
+`<Work />` is an IIIF viewer that can be used to display digital IIIF manifests. It is built with [Clover-IIIF](https://github.com/samvera-labs/clover-iiif). The latest version of Nextjs and React do not work with Clover-IIIF, so we must use v2.12.0.
 
-### Grunnleggende bruk
+### Basic usage
 
 ```tsx
 import { Work } from '@/components/work'
 
 <Work manifest="ubb-diplom-0034">
   <Work.Description>
-    Dette diplomet er datert 7. august 1348 og handler om et drap i Bergen samme vår. 
-    Sysselmann Ivar Andresson gir beskjed til kong Magnus VII Eriksson om at Arne Alfinnson 
-    drepte Einar Auga, og gir en detaljert beskrivelse av hendelsen.
+    This is an example of how you can display a digital object in your exhibition. 
+    Replace this text with your own description of the object you want to show.
   </Work.Description>
   <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
-    Se mer i Marcus
+    See more in Marcus
   </Work.Link>
 </Work>
 ```
 
-### Eksempel
+### Example
 
 <Work manifest="ubb-diplom-0034">
   <Work.Description>
-    Dette diplomet er datert 7. august 1348 og handler om et drap i Bergen samme vår. 
-    Sysselmann Ivar Andresson gir beskjed til kong Magnus VII Eriksson om at Arne Alfinnson 
-    drepte Einar Auga, og gir en detaljert beskrivelse av hendelsen.
+    This is an example of how you can display a digital object in your exhibition. 
+    Replace this text with your own description of the object you want to show.
   </Work.Description>
   <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
-    Se mer i Marcus
+    See more in Marcus
   </Work.Link>
 </Work>
 
-### Uten beskrivelse
+### Without description
 
 ```tsx
 <Work manifest="ubb-diplom-0034">
@@ -50,41 +48,44 @@ import { Work } from '@/components/work'
 </Work>
 ```
 
-### Bare med beskrivelse (uten lenke)
+### With description (without link)
 
 ```tsx
 <Work manifest="ubb-diplom-0034">
   <Work.Description>
-    Dette diplomet er datert 7. august 1348 og handler om et drap i Bergen samme vår.
+    This is an example of how you can display a digital object in your exhibition. 
+    Replace this text with your own description of the object you want to show.
   </Work.Description>
 </Work>
 ```
 
-### Tilpasset lenketekst
+### Custom link text
 
 ```tsx
 <Work manifest="ubb-diplom-0034">
   <Work.Description>
-    Dette diplomet er datert 7. august 1348 og handler om et drap i Bergen samme vår.
+    This is an example of how you can display a digital object in your exhibition. 
+    Replace this text with your own description of the object you want to show.
   </Work.Description>
   <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
-    Les mer om dette diplomet
+    See more in Marcus
   </Work.Link>
 </Work>
 ```
 
-### Standard lenketekst (uten children)
+### Standard link text (without children)
 
 ```tsx
 <Work manifest="ubb-diplom-0034">
   <Work.Description>
-    Dette diplomet er datert 7. august 1348 og handler om et drap i Bergen samme vår.
+    This is an example of how you can display a digital object in your exhibition. 
+    Replace this text with your own description of the object you want to show.
   </Work.Description>
   <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html" />
 </Work>
 ```
 
-### Direkte IIIF URL
+### Direct IIIF URL
 
 ```tsx
 <Work manifest="https://api.ub.uib.no/items/ubb-diplom-0034?as=iiif">
@@ -96,14 +97,14 @@ import { Work } from '@/components/work'
 
 ### Manifest prop
 
-`manifest` prop kan være:
+`manifest` prop can be:
 
-- **String ID**: `"ubb-diplom-0034"` - automatisk konvertert til UB API URL
-- **Direkte URL**: `"https://api.ub.uib.no/items/ubb-diplom-0034?as=iiif"`
+- **String ID**: `"ubb-diplom-0034"` - automatically converted to UB API URL
+- **Direct URL**: `"https://api.ub.uib.no/items/ubb-diplom-0034?as=iiif"`
 
-## UI komponenter
+## UI components
 
-Vi bruker [Shadcn UI](https://ui.shadcn.com) for å bygge våre komponenter. Bruk CSS variabler for å endre farger og størrelser. Større tilpassinger kan gjøres i selve komponenten, men oppdatering vil overskrive komponenten. Bruk git til å hente endringer fra tidligere versjoner av komponentene.
+We use [Shadcn UI](https://ui.shadcn.com) to build our components. Use CSS variables to change colors and sizes. Larger customizations can be made in the component itself, but updating will overwrite the component. Use git to fetch changes from previous versions of the components.
 
 ### Button
 
@@ -113,7 +114,7 @@ import { Button } from '@/components/ui/button'
 <Button>Click me</Button>
 ```
 
-#### Tilgjengelige varianter:
+#### Available variants
 
 <div className="flex gap-2 flex-wrap my-3">
   <Button variant="default">Default</Button>
@@ -124,7 +125,7 @@ import { Button } from '@/components/ui/button'
   <Button variant="link">Link</Button>
 </div>
 
-### Tilgjengelige størrelser:
+#### Available sizes
 
 <div className="flex gap-2 flex-wrap my-3 items-center">
   <Button size="sm">Small</Button>
@@ -133,9 +134,9 @@ import { Button } from '@/components/ui/button'
   <Button size="icon"><IconUsers /></Button>
 </div>
 
-## Ikoner
+## Icons
 
-Vi bruker [Tabler Icons](https://tabler-icons.io/) for ikoner.
+We use [Tabler Icons](https://tabler-icons.io/) for icons.
 
 ```tsx
 import { IconUsers } from '@tabler/icons-react'
@@ -143,7 +144,7 @@ import { IconUsers } from '@tabler/icons-react'
 <IconUsers />
 ```
 
-### Eksempler:
+### Examples
 
 <div className="flex gap-2 flex-wrap my-3">
   <IconHome />
@@ -169,7 +170,7 @@ import { IconUsers } from '@tabler/icons-react'
   <IconAlphabetLatin />
 </div> 
 
-### Størrelser
+### Sizes
 
 <div className="flex gap-2 flex-wrap my-3 items-center">
   <IconUsers size={16} />

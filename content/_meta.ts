@@ -1,6 +1,6 @@
 const meta = {
   'index': {
-    title: 'Universitet i Bergen 200 år',
+    title: 'Exhibition Template',
     type: 'page',
     display: 'hidden',
     theme: {
@@ -8,26 +8,26 @@ const meta = {
       toc: false
     }
   },
-  'tema': {
-    title: 'Tema',
+  'theme': {
+    title: 'Theme',
     type: 'menu',
     items: {
-      'tema-1': {
-        title: 'Tema 1',
-        href: '/tema/tema-1'
+      'theme-1': {
+        title: 'Theme 1',
+        href: '/theme/theme-1'
       },
-      'tema-2': {
-        title: 'Tema 2',
-        href: '/tema/tema-2'
+      'theme-2': {
+        title: 'Theme 2',
+        href: '/theme/theme-2'
       }
     }
   },
-  'om': {
-    title: 'Om',
+  'about': {
+    title: 'About',
     type: 'page',
   },
-  'kontakt': {
-    title: 'Kontakt',
+  'contact': {
+    title: 'Contact',
     type: 'page',
   },
 }

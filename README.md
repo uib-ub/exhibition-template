@@ -1,6 +1,10 @@
-# The University Museum of Bergen - 200 Years Jubilee
+# Exhibition Template
 
-This is a project for the exhibition "The University Museum of Bergen - 200 Years Jubilee" at the University Museum of Bergen.
+This is a template repository for exhibitions using [Nextra](https://nextra.site), [Next.js](https://nextjs.org) and [React](https://react.dev).
+
+You can use this template to create your own exhibition website.
+
+*This is a work in progress and is very bare bones.*
 
 ## Tech Stack
 
@@ -11,7 +15,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - [TypeScript](https://www.typescriptlang.org)
 - [Shadcn UI](https://ui.shadcn.com)
 - [Nextra](https://nextra.site)
-- [Vercel](https://vercel.com)
 
 ## Getting Started
 
@@ -29,20 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Nextra](https://nextra.site/) - documentation for Nextra.
 
-## TODO
-
-- [x] Add `robots.txt` to the project.
-- [x] Init shadcn in the project.
-- [x] Add `Icon` component from `@tabler/icons-react` to the project.
-- [x] Port `Work` component from `exhibition-landsloven-nextra` to this project.
-- [ ] When `clover-iiif` is updated to a version that is compatible with the latest version of `next.js`, use the prefetch strategy for the `Work` component.
-- [ ] Add content to the project.
-- [ ] Add other necessary components from `exhibition-landsloven-nextra` to this project.
-- [ ] Add design from Haltenbanken
-- [x] Add `sitemap.xml` to the project.
-- [ ] Explore [Canopy-IIIF](https://github.com/canopy-iiif/canopy-iiif), that can add automatic views on IIIF collections and manifests. The `canopy-experiment` branch is a starting point.
-
-## Clover-IIIF workaround
+## Work component using Clover-IIIF workaround
 
 NB! `clover-iiif` is pegged to `2.12.0` as later versions are not compatible with the latest version of `next.js`. it is also necessary  to override the version of `react` and `react-dom` to `19.0.0` in the `package.json` file. As well as `openseadragon` to `5.0.1`. See [this issue](https://github.com/samvera-labs/clover-iiif/issues/291) for more information.
 
@@ -57,6 +47,8 @@ NB! `clover-iiif` is pegged to `2.12.0` as later versions are not compatible wit
 ## Sitemap
 
 The sitemap is generated using the `sitemap.ts` file and serves a `/sitemap.xml` route. It does not work in dev useing Turbopack. In production it works, `npm run build && npm run start`, and using `npm run dev:webpack` works. See [this issue](https://github.com/shuding/nextra/issues/4274) for Nextra implementation details.
+
+The domain must be changed to production domain in the `sitemap.ts` file.
 
 Checking the sitemaps in the browser:
 
