@@ -27,12 +27,28 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Deploying
+
+The exhibition can deployed to GitHub Pages using the configuration in `.github/workflows/build.yaml`. If you decide to deploy to [Vercel](https://vercel.com) or another host you can ignore og delete the `.github/workflows/build.yaml` folder.
+
 ## Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Nextra](https://nextra.site/) - documentation for Nextra.
 
-## Work component using Clover-IIIF workaround
+## Components
+
+Components are stored in the `src/components` folder. Using Shadcn UI components as base is recommended. These are stored in the `src/components/ui` folder. Add new components from using the Shadcn CLI.
+
+```bash
+npx shadcn@latest add <component>
+```
+
+### Developing UI with AI
+
+You can use AI to develop UI components. Try [v0.dev](https.//v0.dev)! Describe the components you want and let _v0_ create it for you. 
+
+### Work component using Clover-IIIF workaround
 
 NB! `clover-iiif` is pegged to `2.12.0` as later versions are not compatible with the latest version of `next.js`. it is also necessary  to override the version of `react` and `react-dom` to `19.0.0` in the `package.json` file. As well as `openseadragon` to `5.0.1`. See [this issue](https://github.com/samvera-labs/clover-iiif/issues/291) for more information.
 
