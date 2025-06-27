@@ -10,7 +10,7 @@ Welcome to the exhibition template! This is a template for creating digital exhi
 This template gives you everything you need to create a professional online exhibition. It's built with Next.js and supports IIIF manifests, making it easy to display digital objects from museums and archives.
 
 <Button size="lg" className="my-4">
-  <a href="/documentation">
+  <a href="/exhibition-template/documentation">
     Learn more about how to use the template
   </a>
 </Button>
@@ -18,20 +18,24 @@ This template gives you everything you need to create a professional online exhi
 ## Example digital object
 
 <Work manifest="ubb-diplom-0034">
-  <Work.Description>
-    This is an example of how you can display a digital object in your exhibition. 
-    Replace this text with your own description of the object you want to show.
-  </Work.Description>
-  <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
-    See more in Marcus
-  </Work.Link>
+  <Work.Content>
+    <Work.Description>
+      This is an example of how you can display a digital object in your exhibition. 
+      Replace this text with your own description of the object you want to show.
+    </Work.Description>
+    <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
+      See more in Marcus
+    </Work.Link>
+  </Work.Content>
 </Work>
 
 <Work manifest="https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mc/53/t1mc534fp164/manifest">
-  <Work.Description>
-    This is an example of how you can display a digital object in your exhibition from Durham University. 
-    Replace this text with your own description of the object you want to show.
-  </Work.Description>
+  <Work.Content>
+    <Work.Description>
+      This is an example of how you can display a digital object in your exhibition from Durham University. 
+      Replace this text with your own description of the object you want to show.
+    </Work.Description>
+  </Work.Content>
 </Work>
 
 ## Getting started

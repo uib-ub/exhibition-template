@@ -1,6 +1,6 @@
 import React from 'react';
 import { CloverViewerProps } from '@samvera/clover-iiif';
-import type { ReactNode, ReactElement } from 'react';
+import type { ReactNode } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { ExternalLink } from 'lucide-react';
@@ -14,22 +14,7 @@ interface WorkProps extends VariantProps<typeof workVariants> {
   config?: CloverViewerProps;
   /** Additional CSS classes */
   className?: string;
-}
-
-interface WorkDescriptionProps {
-  /** Content to display in the description */
-  children: ReactNode;
-  /** Additional CSS classes */
-  className?: string;
-}
-
-interface WorkLinkProps {
-  /** URL to link to */
-  href: string;
-  /** Link text (optional, defaults to "Se mer...") */
   children?: ReactNode;
-  /** Additional CSS classes */
-  className?: string;
 }
 
 // Modern variant system with better organization
@@ -80,8 +65,8 @@ const contentVariants = cva(
   }
 );
 
-const marcusButtonVariants = cva(
-  'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+const linkVariants = cva(
+  'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 self-end w-fit shrink-0',
   {
     variants: {
       variant: {
@@ -129,39 +114,11 @@ export function Work({
   variant,
   children,
   ...props
-}: WorkProps & { children?: ReactNode }) {
+}: WorkProps) {
   // Normalize manifest input to URL
   const manifestUrl = React.useMemo(() => {
     return normalizeManifestToUrl(manifest);
   }, [manifest]);
-
-  // Find Work.Description and Work.Link components in children
-  const descriptionElement = React.useMemo(() => {
-    if (!children) return null;
-
-    const childrenArray = React.Children.toArray(children);
-    return childrenArray.find(child =>
-      React.isValidElement(child) && child.type === WorkDescription
-    ) as ReactElement<WorkDescriptionProps> | undefined;
-  }, [children]);
-
-  const linkElement = React.useMemo(() => {
-    if (!children) return null;
-
-    const childrenArray = React.Children.toArray(children);
-    return childrenArray.find(child =>
-      React.isValidElement(child) && child.type === WorkLink
-    ) as ReactElement<WorkLinkProps> | undefined;
-  }, [children]);
-
-  // Detect if content is minimal
-  const isMinimalContent = React.useMemo(() => {
-    if (!descriptionElement) return false;
-    const textContent = React.Children.toArray(descriptionElement.props.children)
-      .filter(child => typeof child === 'string')
-      .join(' ');
-    return textContent.length < 100 && !textContent.includes('\n');
-  }, [descriptionElement]);
 
   // Error handling for missing manifest
   if (!manifestUrl) {
@@ -184,56 +141,80 @@ export function Work({
       />
 
       {/* Content Section - Always render if description or link exists */}
-      {(descriptionElement || linkElement) && (
-        <div className={contentVariants({
-          layout: descriptionElement && linkElement ? 'compact' : 'default',
-          hasContent: !!descriptionElement,
-          contentDensity: isMinimalContent ? 'minimal' : 'default'
-        })}>
-          {descriptionElement && (
-            <div className={cn(
-              descriptionVariants({
-                density: isMinimalContent ? 'minimal' : 'default'
-              }),
-              descriptionElement.props.className
-            )}>
-              {descriptionElement.props.children}
-            </div>
-          )}
+      {children}
+    </div>
+  );
+}
 
-          {linkElement && (
-            <a
-              href={linkElement.props.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                marcusButtonVariants({ variant: 'default' }),
-                'self-end w-fit shrink-0',
-                linkElement.props.className
-              )}
-            >
-              {linkElement.props.children || 'Se mer...'}
-              <ExternalLink className="h-4 w-4" />
-            </a>
-          )}
-        </div>
-      )}
+// Work.Content component - simple wrapper
+function WorkContent({
+  children,
+  className,
+  layout,
+  hasContent,
+  contentDensity,
+  ...props
+}: {
+  children: ReactNode;
+  className?: string;
+} & VariantProps<typeof contentVariants>) {
+  return (
+    <div
+      className={cn(contentVariants({ layout, hasContent, contentDensity }), className)}
+      {...props}
+    >
+      {children}
     </div>
   );
 }
 
 // Work.Description component
-function WorkDescription({ children }: WorkDescriptionProps) {
-  // This component is just a marker - the actual rendering is handled in the parent Work component
-  return <>{children}</>;
+function WorkDescription({
+  children,
+  className,
+  density,
+  ...props
+}: {
+  children: ReactNode;
+  className?: string;
+} & VariantProps<typeof descriptionVariants>) {
+  return (
+    <div
+      className={cn(descriptionVariants({ density }), className)}
+      {...props}
+    >
+      {children}
+    </div>
+  );
 }
 
 // Work.Link component
-function WorkLink({ children }: WorkLinkProps) {
-  // This component is just a marker - the actual rendering is handled in the parent Work component
-  return <>{children}</>;
+function WorkLink({
+  href,
+  children,
+  className,
+  variant,
+  ...props
+}: {
+  href: string;
+  children?: ReactNode;
+  className?: string;
+} & VariantProps<typeof linkVariants>) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(linkVariants({ variant }), className)}
+      {...props}
+    >
+      {children || 'Se mer...'}
+      <ExternalLink className="h-4 w-4" />
+    </a>
+  );
 }
 
 // Attach compound components to Work
+Work.Content = WorkContent;
 Work.Description = WorkDescription;
 Work.Link = WorkLink;

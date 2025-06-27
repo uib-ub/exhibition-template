@@ -1,10 +1,9 @@
 ---
-title: Documentation
+title: Components
 ---
 
 import { Work } from '@/components/work'
-import { Button } from '@/components/ui/button'
-import { IconUsers, IconHome, IconUser, IconArrowRight, IconArrowLeft, IconArrowUp, IconArrowDown, IconArrowUpRight, IconArrowDownRight, IconArrowUpLeft, IconArrowDownLeft, IconChevronRight, IconChevronLeft, IconChevronUp, IconChevronDown, IconChevronUpRight, IconChevronDownRight, IconChevronUpLeft, IconChevronDownLeft, IconAlphabetArabic, IconAlphabetLatin } from '@tabler/icons-react'
+import { Quote } from '@/components/quote'
 
 # Documentation
 
@@ -14,84 +13,98 @@ import { IconUsers, IconHome, IconUser, IconArrowRight, IconArrowLeft, IconArrow
 
 ### Basic usage
 
-```tsx
+```tsx copy
 import { Work } from '@/components/work'
 
 <Work manifest="ubb-diplom-0034">
-  <Work.Description>
-    This is an example of how you can display a digital object in your exhibition. 
-    Replace this text with your own description of the object you want to show.
-  </Work.Description>
-  <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
-    See more in Marcus
-  </Work.Link>
+  <Work.Content>
+    <Work.Description>
+      This is an example of how you can display a digital object in your exhibition. 
+      Replace this text with your own description of the object you want to show.
+    </Work.Description>
+    <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
+      See more in Marcus
+    </Work.Link>
+  </Work.Content>
 </Work>
 ```
 
 ### Example
 
 <Work manifest="ubb-diplom-0034">
-  <Work.Description>
-    This is an example of how you can display a digital object in your exhibition. 
-    Replace this text with your own description of the object you want to show.
-  </Work.Description>
-  <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
-    See more in Marcus
-  </Work.Link>
+  <Work.Content>
+    <Work.Description>
+      This is an example of how you can display a digital object in your exhibition. 
+      Replace this text with your own description of the object you want to show.
+    </Work.Description>
+    <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
+      See more in Marcus
+    </Work.Link>
+  </Work.Content>
 </Work>
 
 ### Without description
 
-```tsx
+```tsx copy
 <Work manifest="ubb-diplom-0034">
-  <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html" />
+  <Work.Content>
+    <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html" />
+  </Work.Content>
 </Work>
 ```
 
 ### With description (without link)
 
-```tsx
+```tsx copy
 <Work manifest="ubb-diplom-0034">
-  <Work.Description>
-    This is an example of how you can display a digital object in your exhibition. 
-    Replace this text with your own description of the object you want to show.
-  </Work.Description>
+  <Work.Content>
+    <Work.Description>
+      This is an example of how you can display a digital object in your exhibition. 
+      Replace this text with your own description of the object you want to show.
+    </Work.Description>
+  </Work.Content>
 </Work>
 ```
 
 ### Custom link text
 
-```tsx
+```tsx copy
 <Work manifest="ubb-diplom-0034">
-  <Work.Description>
-    This is an example of how you can display a digital object in your exhibition. 
-    Replace this text with your own description of the object you want to show.
-  </Work.Description>
-  <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
-    See more in Marcus
-  </Work.Link>
+  <Work.Content>
+    <Work.Description>
+      This is an example of how you can display a digital object in your exhibition. 
+      Replace this text with your own description of the object you want to show.
+    </Work.Description>
+    <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html">
+      See more in Marcus
+    </Work.Link>
+  </Work.Content>
 </Work>
 ```
 
 ### Standard link text (without children)
 
-```tsx
+```tsx copy
 <Work manifest="ubb-diplom-0034">
-  <Work.Description>
-    This is an example of how you can display a digital object in your exhibition. 
-    Replace this text with your own description of the object you want to show.
-  </Work.Description>
-  <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html" />
+  <Work.Content>
+    <Work.Description>
+      This is an example of how you can display a digital object in your exhibition. 
+      Replace this text with your own description of the object you want to show.
+    </Work.Description>
+    <Work.Link href="https://marcus.uib.no/instance/charter/ubb-diplom-0034.html" />
+  </Work.Content>
 </Work>
 ```
 
 ### Direct IIIF URL
 
-```tsx
+```tsx copy
 <Work manifest="https://api.ub.uib.no/items/ubb-diplom-0034?as=iiif">
-  <Work.Description>
-    Dette diplomet er datert 7. august 1348 og handler om et drap i Bergen samme vår.
-  </Work.Description>
+  <Work.Content>
+    <Work.Description>
+      Dette diplomet er datert 7. august 1348 og handler om et drap i Bergen samme vår.
+    </Work.Description>
+  </Work.Content>
 </Work>
 ```
 
@@ -102,84 +115,32 @@ import { Work } from '@/components/work'
 - **String ID**: `"ubb-diplom-0034"` - automatically converted to UB API URL
 - **Direct URL**: `"https://api.ub.uib.no/items/ubb-diplom-0034?as=iiif"`
 
-## UI components
+## Quote
 
-We use [Shadcn UI](https://ui.shadcn.com) to build our components. Use CSS variables to change colors and sizes. Larger customizations can be made in the component itself, but updating will overwrite the component. Use git to fetch changes from previous versions of the components.
-
-### Button
-
-```tsx
-import { Button } from '@/components/ui/button'
-
-<Button>Click me</Button>
+```tsx copy
+<Quote>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. Et mazim recteque nam. Scripta periculis ei eam, te pro movet reformidans. Scripta periculis ei eam, te pro movet reformidans. Sed no sumo stet, est ei quodsi feugait liberavisse, in pro quot facete definitiones. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Ad doctus gubergren duo, mel te postea suavitate. Offendit eleifend moderatius ex vix, quem odio mazim et qui, ei denique consequuntur vix. Harum repudiandae sea at. Scripta periculis ei eam, te pro movet reformidans.
+</Quote>
 ```
 
-#### Available variants
+<Quote>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. Et mazim recteque nam. Scripta periculis ei eam, te pro movet reformidans. Scripta periculis ei eam, te pro movet reformidans. Sed no sumo stet, est ei quodsi feugait liberavisse, in pro quot facete definitiones. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Ad doctus gubergren duo, mel te postea suavitate. Offendit eleifend moderatius ex vix, quem odio mazim et qui, ei denique consequuntur vix. Harum repudiandae sea at. Scripta periculis ei eam, te pro movet reformidans.
+</Quote>
 
-<div className="flex gap-2 flex-wrap my-3">
-  <Button variant="default">Default</Button>
-  <Button variant="destructive">Destructive</Button>
-  <Button variant="outline">Outline</Button>
-  <Button variant="secondary">Secondary</Button>
-  <Button variant="ghost">Ghost</Button>
-  <Button variant="link">Link</Button>
-</div>
+### With source
 
-#### Available sizes
-
-<div className="flex gap-2 flex-wrap my-3 items-center">
-  <Button size="sm">Small</Button>
-  <Button size="default">Default</Button>
-  <Button size="lg">Large</Button>
-  <Button size="icon"><IconUsers /></Button>
-</div>
-
-### Icons
-
-We use [Tabler Icons](https://tabler-icons.io/) for icons.
-
-```tsx
-import { IconUsers } from '@tabler/icons-react'
-
-<IconUsers />
+```tsx copy
+<Quote>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  <Quote.Source>
+    — Shouted by <cite>[John Doe](https://example.com)</cite>
+  </Quote.Source>
+</Quote>
 ```
 
-#### Examples
-
-<div className="flex gap-2 flex-wrap my-3">
-  <IconHome />
-  <IconUsers />
-  <IconUser />
-  <IconArrowRight />
-  <IconArrowLeft />
-  <IconArrowUp />
-  <IconArrowDown />
-  <IconArrowUpRight />
-  <IconArrowDownRight />
-  <IconArrowUpLeft />
-  <IconArrowDownLeft />
-  <IconChevronRight />
-  <IconChevronLeft />
-  <IconChevronUp />
-  <IconChevronDown />
-  <IconChevronUpRight />
-  <IconChevronDownRight />
-  <IconChevronUpLeft />
-  <IconChevronDownLeft />
-  <IconAlphabetArabic />
-  <IconAlphabetLatin />
-</div> 
-
-#### Sizes
-
-<div className="flex gap-2 flex-wrap my-3 items-center">
-  <IconUsers size={16} />
-  <IconHome size={20} />
-  <IconUser size={24} />
-  <IconArrowRight size={28} />
-  <IconArrowLeft size={32} />
-  <IconArrowUp size={36} />
-  <IconArrowDown size={40} />
-  <IconChevronRight size={48} />
-  <IconChevronLeft size={56} />
-</div>
+<Quote>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  <Quote.Source>
+    — Shouted by <cite>[John Doe](https://example.com)</cite>
+  </Quote.Source>
+</Quote>

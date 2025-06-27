@@ -1,0 +1,84 @@
+# UI components
+
+import { Button } from '@/components/ui/button'
+import { IconUsers, IconHome, IconUser, IconArrowRight, IconArrowLeft, IconArrowUp, IconArrowDown, IconArrowUpRight, IconArrowDownRight, IconArrowUpLeft, IconArrowDownLeft, IconChevronRight, IconChevronLeft, IconChevronUp, IconChevronDown, IconChevronUpRight, IconChevronDownRight, IconChevronUpLeft, IconChevronDownLeft, IconAlphabetArabic, IconAlphabetLatin } from '@tabler/icons-react'
+
+We use [Shadcn UI](https://ui.shadcn.com) to build our components. Use CSS variables to change colors and sizes. Larger customizations can be made in the component itself, but updating will overwrite the component. Use git to fetch changes from previous versions of the components.
+
+## Button
+
+```tsx copy
+import { Button } from '@/components/ui/button'
+
+<Button>Click me</Button>
+```
+
+### Available variants
+
+<div className="flex gap-2 flex-wrap my-3">
+  <Button variant="default">Default</Button>
+  <Button variant="destructive">Destructive</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="ghost">Ghost</Button>
+  <Button variant="link">Link</Button>
+</div>
+
+### Available sizes
+
+<div className="flex gap-2 flex-wrap my-3 items-center">
+  <Button size="sm">Small</Button>
+  <Button size="default">Default</Button>
+  <Button size="lg">Large</Button>
+  <Button size="icon"><IconUsers /></Button>
+</div>
+
+## Icons
+
+We use [Tabler Icons](https://tabler-icons.io/) for icons.
+
+```tsx copy
+import { IconUsers } from '@tabler/icons-react'
+
+<IconUsers />
+```
+
+### Examples
+
+<div className="flex gap-2 flex-wrap my-3">
+  <IconHome />
+  <IconUsers />
+  <IconUser />
+  <IconArrowRight />
+  <IconArrowLeft />
+  <IconArrowUp />
+  <IconArrowDown />
+  <IconArrowUpRight />
+  <IconArrowDownRight />
+  <IconArrowUpLeft />
+  <IconArrowDownLeft />
+  <IconChevronRight />
+  <IconChevronLeft />
+  <IconChevronUp />
+  <IconChevronDown />
+  <IconChevronUpRight />
+  <IconChevronDownRight />
+  <IconChevronUpLeft />
+  <IconChevronDownLeft />
+  <IconAlphabetArabic />
+  <IconAlphabetLatin />
+</div> 
+
+### Sizes
+
+<div className="flex gap-2 flex-wrap my-3 items-center">
+  <IconUsers size={16} />
+  <IconHome size={20} />
+  <IconUser size={24} />
+  <IconArrowRight size={28} />
+  <IconArrowLeft size={32} />
+  <IconArrowUp size={36} />
+  <IconArrowDown size={40} />
+  <IconChevronRight size={48} />
+  <IconChevronLeft size={56} />
+</div>
