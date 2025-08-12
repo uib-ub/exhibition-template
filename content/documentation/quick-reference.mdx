@@ -1,5 +1,8 @@
 ---
 title: Quick Reference Guide
+keywords: 
+  - quick reference
+  - markdown
 ---
 
 # Quick Reference Guide
@@ -13,11 +16,46 @@ Every page should start with frontmatter and a main heading:
 ```markdown
 ---
 title: Your Page Title
+description: A brief description of the page content
+keywords: 
+  - keyword1
+  - keyword2
+  - keyword3
 ---
 
 # Main Page Heading
 
 Your content goes here...
+```
+
+### Frontmatter Options
+
+The frontmatter section (between `---` markers) supports several fields:
+
+- **`title`** (required): The page title that appears in the browser tab and navigation
+- **`description`** (optional): A brief description of the page content, used for SEO
+- **`keywords`** (optional): A list of keywords related to the page content, used for SEO
+
+### Frontmatter Examples
+
+**Simple page:**
+```markdown
+---
+title: About Us
+---
+```
+
+**Page with SEO metadata:**
+```markdown
+---
+title: Medieval Artifacts
+description: Explore our collection of medieval artifacts from the 12th century
+keywords:
+  - medieval
+  - artifacts
+  - 12th century
+  - history
+---
 ```
 
 ## Text Formatting
