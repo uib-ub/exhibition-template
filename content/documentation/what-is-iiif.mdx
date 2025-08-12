@@ -1,0 +1,202 @@
+---
+title: What is IIIF?
+---
+
+# What is IIIF? A Simple Guide for Non-Technical Users
+
+If you're working with digital exhibitions, you might have heard the term "IIIF" mentioned. Don't worry if it sounds technical - this guide will explain what it is and why it matters for your digital exhibition in simple terms.
+
+## What Does IIIF Stand For?
+
+**IIIF** stands for **International Image Interoperability Framework**. That's a mouthful, so let's break it down:
+
+- **International** - It's used worldwide
+- **Image** - It's about digital images and visual materials
+- **Interoperability** - Different systems can work together
+- **Framework** - It's a set of rules and standards
+
+Think of IIIF as a **universal language for digital images** that allows different websites, applications, and institutions to share and display images in a consistent way.
+
+## Why Should You Care About IIIF?
+
+Imagine you're trying to share a high-resolution image of a medieval manuscript. Without IIIF, you might face these problems:
+
+- **Large file sizes** that take forever to load
+- **Poor quality** when zooming in
+- **Incompatible formats** between different systems
+- **Limited sharing options** between institutions
+
+IIIF solves these problems by providing a standardized way to:
+- **Serve images efficiently** at any size or zoom level
+- **Share images seamlessly** between different platforms
+- **Display images consistently** across various viewers
+- **Preserve image quality** while optimizing for web delivery
+
+## How IIIF Works: A Simple Analogy
+
+Think of IIIF like a **smart image delivery system**:
+
+### Traditional Image Sharing (Without IIIF)
+Imagine you have a huge poster and want to show it to someone online:
+- You'd have to scan the entire poster at high resolution
+- Upload the massive file
+- The viewer would download the entire file, even if they only want to see a small part
+- Zooming would be limited or poor quality
+
+### IIIF Image Sharing
+With IIIF, it's like having a **smart poster system**:
+- The poster is stored in a special format that can be "sliced" into pieces
+- When someone wants to see a specific part, only that piece is sent
+- They can zoom in to see tiny details without losing quality
+- The system automatically optimizes the image size for their screen
+
+## Key Benefits for Digital Exhibitions
+
+### 1. Better User Experience
+- **Fast loading** - Images load quickly, even on slow connections
+- **Smooth zooming** - Users can examine fine details without waiting
+- **Responsive design** - Images look great on phones, tablets, and computers
+
+### 2. Professional Quality
+- **High-resolution viewing** - Show the finest details of your objects
+- **Consistent display** - Images look the same across different devices
+- **Professional appearance** - Your exhibition looks polished and modern
+
+### 3. Easy Sharing and Collaboration
+- **Cross-institution sharing** - Link to images from other collections
+- **Standardized format** - Works with many different exhibition platforms
+- **Future-proof** - Your content will work with new technologies
+
+## IIIF in Your Exhibition Template
+
+The exhibition template you're using includes built-in IIIF support through the **Work component**. This means you can easily display IIIF-compatible images and objects in your exhibition.
+
+### What This Means for You
+
+When you use the Work component with a IIIF manifest, you get:
+- **Automatic zoom viewer** - Visitors can examine details
+- **Responsive design** - Works on all devices
+- **Professional appearance** - Looks like a museum-quality display
+- **Easy setup** - Just provide the IIIF manifest URL
+
+## Common IIIF Sources
+
+Many major cultural institutions now provide IIIF access to their collections:
+
+- **Libraries**: British Library, Library of Congress, National Library of Norway
+- **Museums**: The Met, Smithsonian, Rijksmuseum
+- **Universities**: Stanford, Harvard, Yale
+- **Archives**: National Archives, Vatican Library
+
+## Getting Started with IIIF
+
+### Finding IIIF Content
+
+1. **Look for IIIF badges** on institutional websites
+2. **Check collection pages** for "IIIF" or "Manifest" links
+3. **Search IIIF registries** for available collections
+4. **Contact institutions** to ask about IIIF access
+
+### Identifying IIIF URLs
+
+When looking for IIIF content, you'll encounter different types of URLs. Here's what to look for:
+
+#### Manifest URLs (What You Need for the Work Component)
+
+These are the main URLs you'll use in your exhibition. They typically end with `.json` and contain the word "manifest":
+
+**Common patterns:**
+- `https://example.com/iiif/manifest.json`
+- `https://example.com/iiif/2/manifest.json`
+- `https://example.com/iiif/3/manifest.json`
+- `https://example.com/iiif/presentation/manifest.json`
+
+**Real examples:**
+- Bodleian Library: https://iiif.bodleian.ox.ac.uk/iiif/manifest/60834383-7146-41ab-bfe1-48ee97bc04be.json
+- University of Bergen Library: https://api.ub.uib.no/items/ubb-diplom-0034?as=iiif
+
+
+#### Image URLs (Advanced)
+
+These are for individual images within a manifest and typically contain image manipulation parameters:
+
+**Pattern:** `https://example.com/iiif/2/image-id/region/size/rotation/quality.format`
+
+**Example:** `https://example.com/iiif/2/abc123/full/800,/0/default.jpg`
+
+*Note: You usually don't need these directly - the Work component handles them automatically when you provide a manifest URL.*
+
+#### Collection URLs
+
+These point to groups of related objects:
+
+**Pattern:** `https://example.com/iiif/collection/collection-name.json`
+
+**Example:** `https://example.com/iiif/collection/medieval-manuscripts.json`
+
+### How to Test if a URL is IIIF-Compatible
+
+1. **Copy the URL** from the institution's website
+2. **Paste it in your browser** - it should show a JSON file (lots of text with brackets and quotes)
+3. **Look for key terms** in the JSON like "manifest", "canvas", "image", or "@context"
+4. **Try it in your Work component** - if it works, you'll see the object displayed
+
+### Common Places to Find IIIF URLs
+
+**On institutional websites, look for:**
+- "IIIF" or "Manifest" buttons
+- "View in IIIF Viewer" links
+- "Export" or "Share" options that mention IIIF
+- "API" or "Developer" sections
+
+**Example institutional IIIF pages:**
+- British Library: Look for "IIIF Manifest" links on individual item pages
+- The Met: Check the "API" section for IIIF endpoints
+- Stanford: Use their IIIF manifest browser
+- National Library of Norway: Look for "IIIF" badges on collection items
+
+### Using IIIF in Your Exhibition
+
+Once you have a IIIF manifest URL, you can display it in your exhibition using the Work component:
+
+```tsx
+<Work manifest="https://example.com/iiif/manifest.json">
+  <Work.Content>
+    <Work.Description>
+      This medieval manuscript from the 14th century contains...
+    </Work.Description>
+  </Work.Content>
+</Work>
+```
+
+## Technical Details (Optional)
+
+If you're curious about the technical side, IIIF consists of three main APIs:
+
+1. **[Image API](https://iiif.io/api/image/3.0/)** - Handles image delivery and manipulation
+2. **[Presentation API](https://iiif.io/api/presentation/3.0/)** - Defines how objects are structured and described
+3. **[Content Search API](https://iiif.io/api/search/2.0/)** - Enables searching within objects
+
+But you don't need to understand these details to use IIIF effectively in your exhibition!
+
+## Further Resources
+
+- **[IIIF Consortium](https://iiif.io/)** - Official IIIF website
+- **[IIIF Training Materials](https://training.iiif.io/)** - Free online courses
+- **[IIIF Community](https://iiif.io/community/)** - Connect with other users
+- **[IIIF Slack](https://iiif.io/slack/)** - Get help from the community
+
+## Summary
+
+IIIF is a powerful tool that makes digital exhibitions more professional, accessible, and user-friendly. While the technical details can be complex, the benefits are clear:
+
+- **Better user experience** for your visitors
+- **Professional quality** for your exhibition
+- **Easy sharing** of digital objects
+- **Future-proof** content that works with new technologies
+
+By using the IIIF-enabled Work component in your exhibition template, you're already taking advantage of these benefits without needing to understand the technical complexity behind the scenes.
+
+---
+
+*This guide is designed to help non-technical users understand IIIF. For more detailed technical information, please refer to the official IIIF documentation and training materials.*

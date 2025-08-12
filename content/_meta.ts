@@ -8,6 +8,40 @@ const meta = {
       toc: false
     }
   },
+  'documentation': {
+    title: 'Documentation',
+    type: 'menu',
+    items: {
+      'index': {
+        title: 'Getting Started Guide',
+        href: '/documentation'
+      },
+      'content-guide': {
+        title: 'Content Creation Guide',
+        href: '/documentation/content-guide'
+      },
+      'what-is-iiif': {
+        title: 'What is IIIF?',
+        href: '/documentation/what-is-iiif'
+      },
+      'ui-components': {
+        title: 'UI Components Guide',
+        href: '/documentation/ui-components'
+      },
+      'troubleshooting': {
+        title: 'Troubleshooting Guide',
+        href: '/documentation/troubleshooting'
+      },
+      'quick-reference': {
+        title: 'Quick Reference Guide',
+        href: '/documentation/quick-reference'
+      },
+      'checklist': {
+        title: 'Getting Started Checklist',
+        href: '/documentation/checklist'
+      }
+    }
+  },
   'theme': {
     title: 'Theme',
     type: 'menu',

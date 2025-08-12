@@ -6,6 +6,8 @@ You can use this template to create your own exhibition website.
 
 *This is a work in progress and is very bare bones.*
 
+Read the [Getting Started Guide](https://uib-ub.github.io/exhibition-template/documentation) for more information.
+
 ## Tech Stack
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). [Nextra](https://nextra.site) is used for markdown-based pages.
@@ -62,7 +64,7 @@ NB! `clover-iiif` is pegged to `2.12.0` as later versions are not compatible wit
 
 ## Sitemap
 
-The sitemap is generated using the `sitemap.ts` file and serves a `/sitemap.xml` route. It does not work in dev useing Turbopack. In production it works, `npm run build && npm run start`, and using `npm run dev:webpack` works. See [this issue](https://github.com/shuding/nextra/issues/4274) for Nextra implementation details.
+The sitemap is generated using the `sitemap.ts` file and serves a `/sitemap.xml` route. It does not work in dev using Turbopack. In production it works, `npm run build && npm run start`, and using `npm run dev:webpack` works. See [this issue](https://github.com/shuding/nextra/issues/4274) for Nextra implementation details.
 
 The domain must be changed to production domain in the `sitemap.ts` file.
 

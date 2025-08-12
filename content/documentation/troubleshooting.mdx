@@ -1,0 +1,268 @@
+---
+title: Troubleshooting Guide
+---
+
+# Troubleshooting Common Issues
+
+This guide will help you solve common problems you might encounter while creating your exhibition website. Don't worry - most issues have simple solutions!
+
+## My Website Isn't Working
+
+### The website won't load or shows an error
+
+**Possible causes and solutions:**
+
+1. **Check your repository name**
+   - Make sure you changed the `basePath` in `next.config.ts` to match your repository name
+   - The name should be exactly the same (including hyphens and lowercase letters)
+
+2. **Wait for GitHub to build your site**
+   - After pushing changes, GitHub needs time to build your website
+   - This usually takes 2-5 minutes
+   - Check the "Actions" tab in your repository to see if the build is complete
+
+3. **Check the URL format**
+   - Your website should be at: `https://[your-username].github.io/[your-repository-name]/`
+   - Make sure you're using the correct username and repository name
+
+### The website loads but looks wrong
+
+1. **Check your content files**
+   - Make sure your `.mdx` files are in the `content/` folder
+   - Verify the files have the correct extension (`.mdx`, not `.md`)
+   - Check that you saved your changes
+
+2. **Look for syntax errors**
+   - Missing brackets `{}` or parentheses `()`
+   - Unclosed quotes `"` or backticks `` ` ``
+   - Extra or missing characters
+
+## Content Issues
+
+### My text isn't appearing on the page
+
+**Check these common issues:**
+
+1. **File location**
+   - Make sure your file is in the `content/` folder
+   - Check that the file has a `.mdx` extension
+
+2. **File structure**
+   - Make sure your file starts with frontmatter (the section between `---` markers)
+   - Example:
+   ```markdown
+   ---
+   title: My Page Title
+   ---
+   
+   # My Content Here
+   ```
+
+3. **Save your changes**
+   - Make sure you saved the file after making changes
+   - Commit and push your changes to GitHub
+
+### Images aren't showing up
+
+**Troubleshooting steps:**
+
+1. **Check the file location**
+   - Images must be in the `public/` folder
+   - The path in your content should start with `/`
+
+2. **Verify the file name**
+   - Check for typos in the image filename
+   - Make sure the file extension is correct (`.jpg`, `.png`, etc.)
+   - File names are case-sensitive
+
+3. **Check the image format**
+   - Use common formats: JPG, PNG, WebP
+   - Make sure the file isn't corrupted
+
+**Correct image syntax:**
+```markdown
+![Description of the image](/your-image-name.jpg)
+```
+
+### Links aren't working
+
+**Common link problems:**
+
+1. **External links**
+   - Make sure the URL is complete (starts with `https://`)
+   - Test the link in a new browser tab
+
+2. **Internal links**
+   - For pages within your exhibition, use relative paths
+   - Example: `[About Us](/about)` not `[About Us](https://example.com/about)`
+
+3. **Check for typos**
+   - Verify the URL is spelled correctly
+   - Make sure the page you're linking to exists
+
+## Work Component Issues
+
+### The Work component isn't displaying my object
+
+**Check these settings:**
+
+1. **Manifest ID**
+   - Make sure the manifest ID or URL is correct
+
+2. **Component syntax**
+   - Verify all brackets and tags are properly closed
+   - Make sure you imported the Work component
+
+3. **Object availability**
+   - Some objects might not be available for public viewing
+   - Try a different object ID to test
+
+### The zoom viewer isn't working
+
+1. **Browser compatibility**
+   - Try a different browser (Chrome, Firefox, Safari)
+   - Make sure your browser is up to date
+
+2. **Object format**
+   - The object must be in IIIF format
+   - Some objects might not support zoom functionality
+
+## GitHub Issues
+
+### I can't find the "Use this template" button
+
+1. **Make sure you're on the right page**
+   - You should be on the main repository page (https://github.com/uib-ub/exhibition-template)
+   - Look for a green button that says "Use this template"
+
+2. **Check your GitHub account**
+   - You need to be logged into GitHub
+   - Make sure you have a GitHub account
+
+### I can't open a codespace
+
+1. **Browser requirements**
+   - Use a modern browser (Chrome, Firefox, Safari, Edge)
+   - Make sure JavaScript is enabled
+
+2. **GitHub account settings**
+   - Check that codespaces are enabled for your account
+   - You might need to verify your email address
+
+### Changes aren't appearing after I push
+
+1. **Wait for the build**
+   - GitHub needs time to rebuild your website
+   - Check the "Actions" tab to see build progress
+
+2. **Clear your browser cache**
+   - Press Ctrl+F5 (or Cmd+Shift+R on Mac) to refresh
+   - Try opening the site in an incognito/private window
+
+3. **Check the build logs**
+   - Go to the "Actions" tab in your repository
+   - Look for any error messages in the build logs
+
+## Performance Issues
+
+### The website is loading slowly
+
+1. **Image file sizes**
+   - Large images can slow down your website
+   - Compress images to under 2MB each
+   - Use WebP format when possible
+
+2. **Number of images**
+   - Too many images on one page can cause slow loading
+   - Consider splitting content across multiple pages
+
+3. **Browser cache**
+   - Clear your browser cache
+   - Try a different browser
+
+## Getting Help
+
+### When to ask for help
+
+Ask for help when:
+- You've tried the solutions above but the problem persists
+- You get an error message you don't understand
+- Something that should work isn't working
+
+### How to ask for help effectively
+
+When asking for help, include:
+1. **What you're trying to do**
+2. **What's happening instead**
+3. **What you've already tried**
+4. **Any error messages you see**
+5. **Your repository name** (if relevant)
+
+### Where to get help
+
+1. **Check the documentation first**
+   - Look for similar examples in the guides
+   - Search for your specific issue
+
+2. **Ask in the community**
+   - Technical support forums (https://github.com/uib-ub/exhibition-template/discussions)
+   - Colleagues or friends with technical experience
+
+## Prevention Tips
+
+### Save your work regularly
+
+1. **Commit frequently**
+   - Save your changes every few minutes
+   - Use descriptive commit messages
+
+2. **Test as you go**
+   - Check your website after each major change
+   - Don't wait until the end to test everything
+
+3. **Keep backups**
+   - Your work is automatically saved on GitHub
+   - Consider keeping local copies of important content
+
+### Start simple
+
+1. **Begin with basic content**
+   - Start with simple text pages
+   - Add complex features gradually
+
+2. **Test one thing at a time**
+   - Make one change, test it, then move to the next
+   - This makes it easier to identify problems
+
+3. **Use examples**
+   - Copy and modify existing examples
+   - Don't try to write everything from scratch
+
+## Common Error Messages
+
+### "Page not found" (404 error)
+
+**What it means:** The page you're trying to access doesn't exist.
+
+**Solutions:**
+- Check the URL spelling
+- Make sure the page file exists in the correct folder
+- Verify the file has a `.mdx` extension
+
+### "Build failed"
+
+**What it means:** GitHub couldn't build your website due to an error.
+
+**Solutions:**
+- Check the build logs in the "Actions" tab
+- Look for syntax errors in your content
+- Make sure all files are properly formatted
+
+### "Component not found"
+
+**What it means:** You're trying to use a component that isn't available.
+
+**Solutions:**
+- Check that you imported the component correctly
+- Make sure the component name is spelled correctly
+- Verify the component exists in the template

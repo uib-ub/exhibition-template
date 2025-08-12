@@ -1,0 +1,378 @@
+---
+title: Quick Reference Guide
+---
+
+# Quick Reference Guide
+
+This guide provides quick access to common tasks and code snippets you'll use while creating your exhibition.
+
+## Basic Page Structure
+
+Every page should start with frontmatter and a main heading:
+
+```markdown
+---
+title: Your Page Title
+---
+
+# Main Page Heading
+
+Your content goes here...
+```
+
+## Text Formatting
+
+### Headings
+```markdown
+# Main Heading (largest)
+## Section Heading
+### Subsection Heading
+#### Small Heading
+```
+
+### Text Emphasis
+```markdown
+**Bold text** for emphasis
+*Italic text* for subtle emphasis
+`code or technical terms`
+```
+
+### Lists
+```markdown
+- Bullet points
+- For unordered lists
+- Like this
+
+1. Numbered lists
+2. For ordered sequences
+3. Like steps
+```
+
+### Links
+```markdown
+[Link text](https://example.com)
+[Internal page](/about)
+[Link with title](https://example.com "Optional title")
+```
+
+## Images
+
+### Basic Image
+```markdown
+![Description of image](/image-name.jpg)
+```
+
+### Image with Link
+```markdown
+[![Description](/image-name.jpg)](https://example.com)
+```
+
+### Image with Caption
+```markdown
+![Description](/image-name.jpg)
+*Caption text goes here*
+```
+
+## Work Component
+
+### Basic Usage
+```tsx
+import { Work } from '@/components/work'
+
+<Work manifest="object-id">
+  <Work.Content>
+    <Work.Description>
+      Your description here
+    </Work.Description>
+    <Work.Link href="https://example.com">
+      Learn more
+    </Work.Link>
+  </Work.Content>
+</Work>
+```
+
+### Without Description
+```tsx
+<Work manifest="object-id">
+  <Work.Content>
+    <Work.Link href="https://example.com" />
+  </Work.Content>
+</Work>
+```
+
+### With Direct URL
+```tsx
+<Work manifest="https://api.example.com/object-id">
+  <Work.Content>
+    <Work.Description>
+      Your description here
+    </Work.Description>
+  </Work.Content>
+</Work>
+```
+
+## Quote Component
+
+### Basic Quote
+```tsx
+import { Quote } from '@/components/quote'
+
+<Quote>
+  Your quote text here
+</Quote>
+```
+
+### Quote with Source
+```tsx
+<Quote>
+  Your quote text here
+  <Quote.Source>
+    — Author Name, [Source](https://example.com)
+  </Quote.Source>
+</Quote>
+```
+
+## Buttons
+
+### Basic Button
+```tsx
+import { Button } from '@/components/ui/button'
+
+<Button>Click me</Button>
+```
+
+### Button Variants
+```tsx
+<Button variant="default">Default</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>
+<Button variant="destructive">Destructive</Button>
+```
+
+### Button Sizes
+```tsx
+<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>
+<Button size="icon"><IconHome /></Button>
+```
+
+### Button with Icon
+```tsx
+import { IconArrowRight } from '@tabler/icons-react'
+
+<Button>
+  <IconArrowRight />
+  Continue
+</Button>
+```
+
+## Icons
+
+### Basic Icon
+```tsx
+import { IconHome } from '@tabler/icons-react'
+
+<IconHome />
+```
+
+### Icon Sizes
+```tsx
+<IconHome size={16} />
+<IconHome size={20} />
+<IconHome size={24} />
+<IconHome size={32} />
+```
+
+## Common Icons
+
+```tsx
+import { 
+  IconHome, 
+  IconUsers, 
+  IconUser, 
+  IconArrowRight, 
+  IconArrowLeft,
+  IconArrowUp,
+  IconArrowDown,
+  IconChevronRight,
+  IconChevronLeft,
+  IconBook,
+  IconImage,
+  IconMail,
+  IconPhone,
+  IconMapPin,
+  IconCalendar,
+  IconClock,
+  IconSearch,
+  IconMenu,
+  IconX,
+  IconPlus,
+  IconMinus,
+  IconHeart,
+  IconStar,
+  IconDownload,
+  IconShare,
+  IconSettings
+} from '@tabler/icons-react'
+```
+
+## Layout Patterns
+
+### Card Layout
+```tsx
+<div className="border rounded-lg p-4">
+  <h3>Card Title</h3>
+  <p>Card content goes here</p>
+  <Button variant="outline" size="sm">
+    Learn More
+  </Button>
+</div>
+```
+
+### Centered Content
+```tsx
+<div className="text-center">
+  <h2>Centered Heading</h2>
+  <p>Centered paragraph text</p>
+  <Button>Centered Button</Button>
+</div>
+```
+
+### Two-Column Layout
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div>
+    <h3>Left Column</h3>
+    <p>Content for left column</p>
+  </div>
+  <div>
+    <h3>Right Column</h3>
+    <p>Content for right column</p>
+  </div>
+</div>
+```
+
+## File Organization
+
+### Recommended Structure
+
+import { FileTree } from 'nextra/components'
+ 
+<FileTree>
+  <FileTree.Folder name="content" defaultOpen>
+    <FileTree.File name="index.mdx" />
+    <FileTree.File name="about.mdx" />
+    <FileTree.File name="contact.mdx" />
+    <FileTree.Folder name="artifacts" defaultOpen>
+      <FileTree.File name="index.mdx" />
+      <FileTree.File name="artifact-1.mdx" />
+      <FileTree.File name="artifact-2.mdx" />
+    </FileTree.Folder>
+    <FileTree.Folder name="themes" defaultOpen>
+      <FileTree.File name="index.mdx" />
+      <FileTree.File name="medieval.mdx" />
+    </FileTree.Folder>
+    <FileTree.Folder name="documentation (can be removed)" defaultOpen>
+      <FileTree.File name="index.mdx" />
+      <FileTree.File name="content-guide.mdx" />
+      <FileTree.File name="troubleshooting.mdx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Common Tasks
+
+### Adding a New Page
+1. Create a new `.mdx` file in the appropriate folder
+2. Add frontmatter with a title
+3. Write your content
+4. Save and commit your changes
+
+### Adding Images
+1. Upload image to `public/` folder
+2. Reference it in your content: `![Description](/image-name.jpg)`
+3. Use descriptive file names
+4. Keep file sizes under 2MB
+
+### Creating Links Between Pages
+- Internal pages: `[Link text](/page-name)`
+- External sites: `[Link text](https://example.com)`
+- Same page sections: `[Link text](#section-name)`
+
+### Making Text Stand Out
+- **Bold** for emphasis: `**text**`
+- *Italic* for subtle emphasis: `*text*`
+- `Code` for technical terms: `` `text` ``
+- Headings for structure: `# Heading`
+
+## Configuration
+
+### Changing Repository Name
+In `next.config.ts`:
+```tsx
+basePath: "/your-repository-name"
+```
+
+### Page Metadata
+In frontmatter:
+```markdown
+---
+title: Page Title
+description: Page description
+---
+```
+
+
+
+## Keyboard Shortcuts
+
+### In Codespace
+- `Ctrl+Z` (or `Cmd+Z`) - Undo
+- `Ctrl+F` (or `Cmd+F`) - Find
+- `Ctrl+H` (or `Cmd+H`) - Replace
+- `Ctrl+S` (or `Cmd+S`) - Save file (usually not needed due to autosave)
+
+### In Browser
+- `F5` (or `Ctrl+R`) - Refresh page
+- `Ctrl+F5` (or `Cmd+Shift+R`) - Hard refresh
+- `Ctrl+Shift+I` - Open developer tools
+
+## Best Practices
+
+### Content
+- Write in plain language
+- Use short paragraphs
+- Include descriptive headings
+- Test your links
+
+### Images
+- Use descriptive file names
+- Compress large images
+- Include alt text
+- Use appropriate formats
+
+### Code
+- Copy examples exactly
+- Check spelling carefully
+- Test one change at a time
+- Save frequently
+
+### Organization
+- Use consistent naming
+- Group related content
+- Create logical navigation
+- Keep structure simple
+
+Remember: When in doubt, start simple and build complexity gradually!
+
+## Need More Help?
+
+If you encounter problems or need more detailed explanations:
+
+- **[Troubleshooting Guide](/documentation/troubleshooting)** - For solving common problems and errors
+- **[Getting Started Guide](/documentation)** - For step-by-step setup instructions
+- **[Content Creation Guide](/documentation/content-guide)** - For writing and organizing your content
+- **[UI Components Guide](/documentation/ui-components)** - For detailed component explanations

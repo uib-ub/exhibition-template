@@ -9,13 +9,26 @@ Welcome to the exhibition template! This is a template for creating digital exhi
 
 This template gives you everything you need to create a professional online exhibition. It's built with Next.js and supports IIIF manifests, making it easy to display digital objects from museums and archives.
 
+## Getting started
+
+To get started with your own exhibition:
+
+1. **Use this template** by clicking the "Use this template" button on GitHub
+2. **Create a new repository** from the template - you now have your own copy in your GitHub space
+3. **Start a codespace** by clicking the "Code" button and then "Open in codespace"
+4. **Change the _basePath_** in `next.config.ts` to your own repository name
+5. **Update the content** in the `content/` folder
+6. **Commit and push** your changes to your repository and see your exhibition live at `https://<your-repository-name>.github.io/<your-repository-name>/`
+
 <Button size="lg" className="my-4">
   <a href="/exhibition-template/documentation">
     Learn more about how to use the template
   </a>
 </Button>
 
-## Example digital object
+## IIIF support
+
+Add your own IIIF manifests to display digital objects in your exhibition.
 
 <Work manifest="ubb-diplom-0034">
   <Work.Content>
@@ -38,14 +51,6 @@ This template gives you everything you need to create a professional online exhi
   </Work.Content>
 </Work>
 
-## Getting started
+## Customize the design
 
-To get started with your own exhibition:
-
-1. **Use this template** by clicking the "Use this template" button on GitHub
-2. **Create a new repository** from the template - you now have your own copy in your GitHub space
-3. **Update the content** in the `content/` folder
-4. **Customize the design** by modifying components in `src/components/`
-5. **Add your own IIIF manifests** to display digital objects
-
-See the documentation for more detailed instructions.
+Modify the components in `src/components/` to change the design of your exhibition.

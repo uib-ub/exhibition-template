@@ -1,0 +1,284 @@
+---
+title: Content Creation Guide
+---
+
+# Creating Content for Your Exhibition
+
+This guide will help you write and organize content for your digital exhibition, even if you've never created a website before.
+
+## Understanding Your Content Structure
+
+Think of your exhibition website like a book with different chapters. Each file in the `content/` folder represents a page on your website.
+
+### Main Pages
+
+- **`index.mdx`** - Your homepage (the first page visitors see)
+- **`about.mdx`** - Information about your exhibition or organization
+- **`contact.mdx`** - How people can reach you
+- **`documentation/`** - Help pages (you can delete this folder if you don't need it)
+
+### Creating New Sections
+
+You can create new folders for different parts of your exhibition:
+
+import { FileTree } from 'nextra/components'
+
+<FileTree>
+  <FileTree.Folder name="content" defaultOpen>
+    <FileTree.File name="index.mdx" />
+    <FileTree.File name="about.mdx" />
+    <FileTree.File name="contact.mdx" />
+    <FileTree.Folder name="artifacts" defaultOpen>
+      <FileTree.File name="index.mdx" />
+      <FileTree.File name="artifact-1.mdx" />
+      <FileTree.File name="artifact-2.mdx" />
+    </FileTree.Folder>
+    <FileTree.Folder name="themes" defaultOpen>
+      <FileTree.File name="index.mdx" />
+      <FileTree.File name="medieval.mdx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+## Writing Your Content
+
+### Basic Text Formatting
+
+You can use simple formatting to make your text more readable:
+
+```markdown
+# Main Heading (largest)
+## Section Heading
+### Subsection Heading
+
+**Bold text** for emphasis
+*Italic text* for subtle emphasis
+
+- Bullet points
+- For lists
+- Of items
+
+1. Numbered lists
+2. For steps
+3. Or sequences
+
+[Link text](https://example.com) for external links
+```
+
+### Adding Images
+
+To add images to your exhibition:
+
+1. **Upload your image** to the `public/` folder
+2. **Reference it** in your content like this:
+
+```markdown
+![Description of the image](/your-image-name.jpg)
+```
+
+**Tips for images:**
+- Use descriptive file names (e.g., `medieval-manuscript-001.jpg`)
+- Keep file sizes reasonable (under 2MB for web)
+- Use common formats: JPG, PNG, or WebP
+- Include alt text for accessibility
+
+### Creating Links Between Pages
+
+Link to other pages in your exhibition:
+
+```markdown
+[View our artifacts](/artifacts)
+[Learn more about medieval manuscripts](/themes/medieval)
+[Contact us](/contact)
+```
+
+## Using the Work Component
+
+The Work component is perfect for displaying digital objects that are published as IIIF manifests ([What is IIIF?](/documentation/what-is-iiif)).
+
+### Basic Work Component
+
+```tsx
+<Work manifest="https://api.ub.uib.no/items/ubb-diplom-0034?as=iiif">
+  <Work.Content>
+    <Work.Description>
+      Describe your object here. What is it? When was it made? 
+      Why is it important to your exhibition?
+    </Work.Description>
+    <Work.Link href="https://example.com/more-info">
+      Learn more about this object
+    </Work.Link>
+  </Work.Content>
+</Work>
+```
+
+### Writing Good Descriptions
+
+**Do:**
+- Explain what the object is
+- Provide historical context
+- Mention why it's significant
+- Use clear, accessible language
+
+**Example:**
+```
+This 14th-century manuscript contains the earliest known recipe for 
+medieval ink making. The text, written in Latin, provides detailed 
+instructions for creating writing materials used by scribes throughout 
+the Middle Ages. This document is particularly important because it 
+shows the transition from expensive imported inks to locally-produced 
+alternatives.
+```
+
+**Don't:**
+- Use overly technical language
+- Assume prior knowledge
+- Write overly long descriptions
+- Forget to explain why it matters
+
+## Organizing Your Content
+
+### Planning Your Exhibition Structure
+
+Before you start writing, plan your exhibition structure:
+
+1. **Main theme** - What is your exhibition about?
+2. **Sections** - How will you organize the content?
+3. **Individual items** - What specific objects or topics will you feature?
+4. **Flow** - How should visitors navigate through your exhibition?
+
+### Example Exhibition Structure
+
+<FileTree>
+  <FileTree.Folder name="Medieval Manuscripts Exhibition" defaultOpen>
+    <FileTree.File name="Introduction (index.mdx)" />
+    <FileTree.File name="About the Collection (about.mdx)" />
+    <FileTree.Folder name="Manuscript Types" defaultOpen>
+      <FileTree.File name="Religious Texts" />
+      <FileTree.File name="Scientific Works" />
+      <FileTree.File name="Literary Manuscripts" />
+    </FileTree.Folder>
+    <FileTree.Folder name="Featured Objects" defaultOpen>
+      <FileTree.File name="The Book of Hours" />
+      <FileTree.File name="Medical Treatise" />
+      <FileTree.File name="Poetry Collection" />
+    </FileTree.Folder>
+    <FileTree.File name="Contact Information (contact.mdx)" />
+  </FileTree.Folder>
+</FileTree>
+
+I've converted the example exhibition structure from a markdown code block to the FileTree component. This will:
+
+1. **Show the exhibition structure as an interactive tree** that users can navigate
+2. **Display the hierarchy clearly** with proper folder and file icons
+3. **Allow users to expand/collapse sections** to focus on specific parts
+4. **Make it easier to understand** how the content is organized
+
+The structure now shows:
+- The main exhibition folder
+- Individual pages (Introduction, About, Contact)
+- Two main sections (Manuscript Types and Featured Objects) with their respective items
+- All folders are set to `defaultOpen` so users can see the full structure immediately
+
+### Creating Navigation
+
+Help visitors find their way around your exhibition:
+
+1. **Add navigation links** to your pages
+2. **Use consistent headings** throughout
+3. **Include "back to top" links** on long pages
+4. **Create breadcrumbs** for complex sections
+
+## Writing for the Web
+
+### Keep It Scannable
+
+Web readers scan content rather than read word-for-word:
+
+- **Use short paragraphs** (2-3 sentences max)
+- **Include subheadings** to break up text
+- **Use bullet points** for lists
+- **Highlight key information** with bold text
+
+### Make It Accessible
+
+- **Use descriptive headings** that explain the content
+- **Write clear link text** (avoid "click here")
+- **Provide alt text** for images
+- **Use simple language** and avoid jargon
+
+### Optimize for Different Devices
+
+- **Keep paragraphs short** for mobile reading
+- **Use clear, readable fonts** (the template handles this)
+- **Test your content** on different screen sizes
+
+## Content Best Practices
+
+### Before You Start Writing
+
+1. **Define your audience** - Who is this exhibition for?
+2. **Set clear goals** - What do you want visitors to learn?
+3. **Research your topic** - Gather accurate information
+4. **Plan your structure** - Organize your thoughts
+
+### While Writing
+
+1. **Start with an outline** - Plan your content structure
+2. **Write in plain language** - Avoid unnecessary complexity
+3. **Include examples** - Help readers understand concepts
+4. **Add visual elements** - Images, diagrams, or interactive components
+
+### After Writing
+
+1. **Review for accuracy** - Check your facts
+2. **Edit for clarity** - Remove unnecessary words
+3. **Test your links** - Make sure they work
+4. **Get feedback** - Ask others to review your content
+
+## Common Content Types
+
+### Exhibition Introduction
+
+Your homepage should:
+- Welcome visitors
+- Explain what the exhibition is about
+- Provide an overview of what they'll see
+- Include a call-to-action
+
+### Object Descriptions
+
+When describing artifacts:
+- What is it?
+- When was it made?
+- Who made it?
+- Why is it important?
+- What can we learn from it?
+
+### Educational Content
+
+For educational exhibitions:
+- Start with the basics
+- Build complexity gradually
+- Include examples and context
+- Provide additional resources
+
+### Contact Information
+
+Make it easy for people to reach you:
+- Clear contact details
+- Multiple ways to get in touch
+- Response time expectations
+- Professional but friendly tone
+
+## Troubleshooting Common Issues
+
+See [Troubleshooting Guide](/documentation/troubleshooting) for common issues.
+
+## Getting Help
+
+If you're stuck:
+1. **Check the documentation** - Look for similar examples
+2. **Start simple** - Begin with basic text and add complexity later
+3. **Ask for help** - Don't hesitate to reach out for assistance
+4. **Take breaks** - Sometimes stepping away helps clarify your thoughts

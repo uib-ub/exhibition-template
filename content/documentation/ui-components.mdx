@@ -1,19 +1,33 @@
-# UI components
+---
+title: UI Components Guide
+---
 
 import { Button } from '@/components/ui/button'
 import { IconUsers, IconHome, IconUser, IconArrowRight, IconArrowLeft, IconArrowUp, IconArrowDown, IconArrowUpRight, IconArrowDownRight, IconArrowUpLeft, IconArrowDownLeft, IconChevronRight, IconChevronLeft, IconChevronUp, IconChevronDown, IconChevronUpRight, IconChevronDownRight, IconChevronUpLeft, IconChevronDownLeft, IconAlphabetArabic, IconAlphabetLatin } from '@tabler/icons-react'
 
-We use [Shadcn UI](https://ui.shadcn.com) to build our components. Use CSS variables to change colors and sizes. Larger customizations can be made in the component itself, but updating will overwrite the component. Use git to fetch changes from previous versions of the components.
+# UI Components Guide
 
-## Button
+This guide shows you how to use the built-in design elements to make your exhibition look professional and polished. These components are like pre-designed building blocks that you can arrange to create your perfect exhibition.
 
-```tsx copy
+## What are UI Components?
+
+UI components are pre-built design elements that you can add to your own custom components. They are built with [Shadcn UI](https://ui.shadcn.com/) and [Tailwind CSS](https://tailwindcss.com/). 
+
+## Buttons - Interactive Elements
+
+Buttons are clickable elements that can link to other pages or perform actions. They come in different styles to match your exhibition's theme.
+
+### Basic Button
+
+```tsx
 import { Button } from '@/components/ui/button'
 
 <Button>Click me</Button>
 ```
 
-### Available variants
+### Button Styles (Variants)
+
+Choose from different button styles to match your content:
 
 <div className="flex gap-2 flex-wrap my-3">
   <Button variant="default">Default</Button>
@@ -24,7 +38,17 @@ import { Button } from '@/components/ui/button'
   <Button variant="link">Link</Button>
 </div>
 
-### Available sizes
+**When to use each style:**
+- **Default** - Primary actions (like "Learn More" or "View Exhibition")
+- **Destructive** - Dangerous actions (like "Delete" or "Remove")
+- **Outline** - Secondary actions that are still important
+- **Secondary** - Less important actions
+- **Ghost** - Subtle actions that don't draw too much attention
+- **Link** - Actions that look like regular text links
+
+### Button Sizes
+
+Buttons come in different sizes to fit different contexts:
 
 <div className="flex gap-2 flex-wrap my-3 items-center">
   <Button size="sm">Small</Button>
@@ -33,17 +57,51 @@ import { Button } from '@/components/ui/button'
   <Button size="icon"><IconUsers /></Button>
 </div>
 
-## Icons
+**When to use each size:**
+- **Small** - When space is limited or for minor actions
+- **Default** - Most common size for regular actions
+- **Large** - For important calls-to-action or when you want to draw attention
+- **Icon** - For buttons that only contain an icon (like a menu button)
 
-We use [Tabler Icons](https://tabler-icons.io/) for icons.
+### Practical Examples
 
-```tsx copy
+**Navigation button:**
+```tsx
+<Button variant="outline" size="lg">
+  <IconArrowRight />
+  Continue to Next Section
+</Button>
+```
+
+**Action button:**
+```tsx
+<Button variant="default">
+  View Full Image
+</Button>
+```
+
+**Subtle link:**
+```tsx
+<Button variant="link">
+  Read More About This Artifact
+</Button>
+```
+
+## Icons - Visual Elements
+
+Icons are small visual symbols that help make your content more engaging and easier to understand. We use Tabler Icons, which are clean and professional.
+
+### Basic Icon Usage
+
+```tsx
 import { IconUsers } from '@tabler/icons-react'
 
 <IconUsers />
 ```
 
-### Examples
+### Available Icons
+
+Here are some commonly used icons you can choose from:
 
 <div className="flex gap-2 flex-wrap my-3">
   <IconHome />
@@ -67,9 +125,11 @@ import { IconUsers } from '@tabler/icons-react'
   <IconChevronDownLeft />
   <IconAlphabetArabic />
   <IconAlphabetLatin />
-</div> 
+</div>
 
-### Sizes
+### Icon Sizes
+
+Icons can be different sizes to match your design:
 
 <div className="flex gap-2 flex-wrap my-3 items-center">
   <IconUsers size={16} />
@@ -78,7 +138,140 @@ import { IconUsers } from '@tabler/icons-react'
   <IconArrowRight size={28} />
   <IconArrowLeft size={32} />
   <IconArrowUp size={36} />
-  <IconArrowDown size={40} />
   <IconChevronRight size={48} />
   <IconChevronLeft size={56} />
 </div>
+
+### Practical Icon Examples
+
+**Navigation with icons:**
+```tsx
+<Button variant="ghost">
+  <IconHome size={20} />
+  Home
+</Button>
+```
+
+**Directional navigation:**
+```tsx
+<div className="flex gap-2">
+  <Button variant="outline" size="icon">
+    <IconArrowLeft />
+  </Button>
+  <Button variant="outline" size="icon">
+    <IconArrowRight />
+  </Button>
+</div>
+```
+
+**Section indicators:**
+```tsx
+<div className="flex items-center gap-2">
+  <IconUsers size={24} />
+  <h2>About the Artists</h2>
+</div>
+```
+
+### Finding More Icons
+
+If you need a specific icon, you can browse the full collection at [Tabler Icons](https://tabler-icons.io/). Simply search for what you need (like "book", "art", etc.) and copy the icon name.
+
+
+## How to Use These Components
+
+### Step 1: Create a new component
+
+Create a new file in the `src/components/` folder. For example, if you want to create a new Callout component, create a new file called `callout.tsx` in the `src/components/` folder.
+
+### Step 2: Import the UI Component
+
+At the top of your file, add the import statement:
+
+```tsx
+import { Button } from '@/components/ui/button'
+import { IconHome } from '@tabler/icons-react'
+```
+
+### Step 3: Add the new Component to Your Content
+
+Place the component where you want it to appear in your content:
+
+```tsx
+import { Callout } from '@/components/callout'
+
+<Callout>
+  <Callout.Title>
+    Welcome to My Exhibition
+  </Callout.Title>
+  <Callout.Content>
+    This is my amazing exhibition about medieval manuscripts.
+  </Callout.Content>
+</Callout>
+```
+
+## Design Tips for Non-Designers
+
+### Color and Style
+- **Be consistent** - Use the same button styles throughout your exhibition
+- **Use contrast** - Make sure buttons stand out from the background
+- **Don't overdo it** - Too many different styles can look cluttered
+
+### Layout
+- **Group related elements** - Put navigation buttons together
+- **Use whitespace** - Give elements room to breathe
+- **Align elements** - Keep things neat and organized
+
+### Accessibility
+- **Use descriptive text** - Don't rely only on icons
+- **Provide alternatives** - Some users can't see icons
+- **Test your design** - Make sure it works on different devices
+
+
+## Common Patterns
+
+### Call-to-Action Section
+
+<div className="flex flex-col items-center gap-2 border rounded-lg p-4 bg-gray-100">
+  <h2 className="text-2xl font-bold">Ready to Explore?</h2>
+  <p className="text-gray-600">Discover our amazing collection of artifacts.</p>
+  <Button variant="default" size="lg"><IconArrowRight /> Start Your Journey</Button>
+</div>
+
+```tsx
+<div className="text-center">
+  <h2>Ready to Explore?</h2>
+  <p>Discover our amazing collection of artifacts.</p>
+  <Button variant="default" size="lg">
+    <IconArrowRight />
+    Start Your Journey
+  </Button>
+</div>
+```
+
+### Information Card
+
+<div className="border rounded-lg p-4">
+  <div className="flex items-center gap-2 mb-2">
+    <IconUsers size={20} />
+    <h3>About the Collection</h3>
+  </div>
+  <p>Learn more about our fascinating artifacts.</p>
+  <Button variant="outline" size="sm" className="mt-2">
+    Read More
+  </Button>
+</div>
+
+```tsx
+<div className="border rounded-lg p-4">
+  <div className="flex items-center gap-2 mb-2">
+    <IconUsers size={20} />
+    <h3>About the Collection</h3>
+  </div>
+  <p>Learn more about our fascinating artifacts.</p>
+  <Button variant="outline" size="sm" className="mt-2">
+    Read More
+  </Button>
+</div>
+```
+
+Remember: The goal is to enhance your content, not overwhelm it. Start simple and add complexity gradually as you become more comfortable with the components.
