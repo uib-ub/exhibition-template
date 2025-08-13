@@ -4,9 +4,7 @@ This is a template repository for exhibitions using [Nextra](https://nextra.site
 
 You can use this template to create your own exhibition website.
 
-*This is a work in progress and is very bare bones.*
-
-Read the [Getting Started Guide](https://uib-ub.github.io/exhibition-template/documentation) for more information.
+Read the [Getting Started Guide](https://uib-ub.github.io/exhibition-template/documentation) for more information or jump right in and [create your own exhibition website](https://github.com/new?template_name=exhibition-template&template_owner=uib-ub).
 
 ## Tech Stack
 
