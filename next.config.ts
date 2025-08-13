@@ -4,6 +4,7 @@ import nextra from 'nextra'
 const withNextra = nextra({
   // ... Add Nextra-specific options here
   defaultShowCopyCode: true,
+  staticImage: true
 })
 
 // Export the final Next.js config with Nextra included
