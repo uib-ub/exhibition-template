@@ -112,6 +112,20 @@ The Work component is perfect for displaying digital objects that are published 
 </Work>
 ```
 
+### Example
+
+<Work manifest="https://api.ub.uib.no/items/ubb-diplom-0034?as=iiif">
+  <Work.Content>
+    <Work.Description>
+      Describe your object here. What is it? When was it made? 
+      Why is it important to your exhibition?
+    </Work.Description>
+    <Work.Link href="https://example.com/more-info">
+      Learn more about this object
+    </Work.Link>
+  </Work.Content>
+</Work>
+
 ### Writing Good Descriptions
 
 **Do:**
@@ -135,6 +149,37 @@ alternatives.
 - Assume prior knowledge
 - Write overly long descriptions
 - Forget to explain why it matters
+
+## Using the Quote Component
+
+The Quote component is perfect for displaying quotes from your exhibition.
+
+### Basic Quote Component
+
+```tsx
+<Quote>
+  Your quote text here
+</Quote>
+```
+
+### Quote with Source
+
+```tsx
+<Quote>
+  Your quote text here
+  <Quote.Source>
+    — Author Name, [Source](https://example.com)
+  </Quote.Source>
+</Quote>
+```
+### Example
+
+<Quote>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  <Quote.Source>
+    — Author Name, [Source](https://example.com)
+  </Quote.Source>
+</Quote>
 
 ## Organizing Your Content
 
